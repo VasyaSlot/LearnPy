@@ -151,7 +151,7 @@ rect(screen, GREEN, (0, 0, 2000, 100))
 
 #Создаем надпись
 font1 = pygame.font.Font(None, 135)
-text1 = font1.render('    HUYASE         PYTHON IS REALLY AMAZING', True, BLACK)
+text1 = font1.render('             PYTHON IS REALLY AMAZING', True, BLACK)
 screen.blit(text1, (0, 10))
 
 #Обновление экрана, чтобы появились нарисованнные вещи
