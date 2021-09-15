@@ -27,8 +27,8 @@ def draw_man(scr, coord_min, coord_max):
     '''
     x_center = 0.5 * (coord_min[0] + coord_max[0])
     y_center = 0.5 * (coord_min[1] + coord_max[1])
-    width = abs(coord_max[0] - coord_min[0])
-    height = abs(coord_max[1] - coord_min[1])
+    width_man = abs(coord_max[0] - coord_min[0])
+    height_man = abs(coord_max[1] - coord_min[1])
 
     body_coords = (x_center, coord_max[1])
     draw_body(scr, body_coords, 0.25 * width, YELLOW)
