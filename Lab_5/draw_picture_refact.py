@@ -1,6 +1,7 @@
 import pygame
 import numpy as np
 import math
+from random import *
 from pygame.draw import *
 
 def mirror_image_2D(coords_need_change, coords_of_center_symmetry = 500 ):
@@ -31,16 +32,54 @@ def draw_man(scr, coord_min, coord_max):
     height_man = abs(coord_max[1] - coord_min[1])
 
     body_coords = (x_center, coord_max[1])
-    draw_body(scr, body_coords, 0.25 * width, YELLOW)
+    body_size = 0.4 * height_man
+    draw_body(scr, body_coords, body_size, YELLOW)
 
-    draw_head(scr, (x_center, y_center), 0.25 * abs(coord_max[0] - coord_min[0]), HUMAN)
+    head_coords = (x_center, coord_max[1] - 1.5 * body_size)
+    draw_head(scr, head_coords, 0.8 * body_size, HUMAN)
 
+    left_arm_coords_start = (body_coords[0] - 2/3 * body_size, body_coords[1] - 2/3 * body_size)
+    left_arm_coords_end = (coord_min[0] + 0.1 * width_man, coord_min[1])
+    draw_arm(scr, left_arm_coords_start, left_arm_coords_end, GREEN, HUMAN)
 
-    #draw_arms()
+    right_arm_coords_start = (body_coords[0] + 2 / 3 * body_size, body_coords[1] - 2 / 3 * body_size)
+    right_arm_coords_end = (coord_max[0] - 0.1 * width_man, coord_min[1])
+    draw_arm(scr, right_arm_coords_start, right_arm_coords_end, GREEN, HUMAN)
+
     #draw_hair()
 
+
+
+def draw_right_pentagon(pentagon_centr_coords, pentagon_radius):
+    random_angle = randint(0, 180) * math.pi / 180
+
+    random_start_point = (pentagon_centr_coords[0] + pentagon_radius * math.cos(random_angle),
+                          pentagon_centr_coords[1] + pentagon_radius * math.sin(random_angle)
+                          )
+
+    pentagon_angle = 360 / 5 * math.pi / 180
+
+    return [[math.cos(i * pentagon_angle) * (random_start_point[0] - pentagon_centr_coords[0]) -
+             math.sin(i * pentagon_angle) * (random_start_point[1] - pentagon_centr_coords[1]) +
+             pentagon_centr_coords[0],
+            math.sin(i * pentagon_angle) * (random_start_point[0] - pentagon_centr_coords[0]) +
+             math.cos(i * pentagon_angle) * (random_start_point[1] - pentagon_centr_coords[1]) +
+             pentagon_centr_coords[1]]
+            for i in range(5)]
+
+
+def draw_arm(scr, start_point, end_point, shirt_color, arm_color):
+    size_punch = 50
+    draw_punch(screen, end_point, size_punch, arm_color)
+
+    line(scr, arm_color, start_point, end_point, size_punch)
+
+    polygon(scr, shirt_color, draw_right_pentagon(start_point, 1.5 * size_punch))
+
+
 def draw_body(scr, body_coord_center, body_size, color):
-    circle(screen, color, body_coord_center, body_size)
+    circle(scr, color, body_coord_center, body_size)
+    circle(scr, BLACK, body_coord_center, body_size, 1)
 
 
 def draw_head(scr, head_coord_center, head_size, color):
@@ -134,7 +173,7 @@ BROWN = (210, 105, 30)
 MAGENTA = (255, 0, 255)
 
 width = 2000
-height = 1000
+height = 800
 
 #Значение FPS для блавноого
 FPS = 30
@@ -145,7 +184,7 @@ screen.fill(WHITE)
 #Создаем кулаки
 
 #coords_left_punch_1 = np.array([[90, 100]])
-draw_punch(screen, (90, 100), 50, HUMAN)
+#draw_punch(screen, (90, 100), 50, HUMAN)
 #circle(screen, HUMAN, coords_left_punch_1[0], 50)
 #draw_punch(screen, )
 #circle(screen, HUMAN, mirror_image_2D(coords_left_punch_1, coords_of_center_symmetry=500)[0], 50)
