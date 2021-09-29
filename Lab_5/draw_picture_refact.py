@@ -18,12 +18,17 @@ def mirror_image_2D(coords_need_change, coords_of_center_symmetry = 500 ):
             return list_coords_need_change
 
 
-def draw_man(scr, coord_min, coord_max):
+def draw_man(scr, coord_min, coord_max, body_color, head_color, shoulder_color, arm_color, hair_color):
     '''
 
     :param scr: screen where draw
-    :param coord_min: couple coordinates (x_min, y_min)
-    :param coord_max: couple coordinates (x_max, y_max)
+    :param coord_min: min coords of area where man draw
+    :param coord_max: max coords of area where man draw
+    :param body_color: color of body
+    :param head_color: color of head
+    :param shoulder_color: color of shoulder
+    :param arm_color: color of arm
+    :param hair_color: color of head
     :return:
     '''
     x_center = 0.5 * (coord_min[0] + coord_max[0])
@@ -33,20 +38,20 @@ def draw_man(scr, coord_min, coord_max):
 
     body_coords = (x_center, coord_max[1])
     body_size = 0.4 * height_man
-    draw_body(scr, body_coords, body_size, YELLOW)
+    draw_body(scr, body_coords, body_size, body_color)
 
     head_coords = (x_center, coord_max[1] - 1.5 * body_size)
-    draw_head(scr, head_coords, 0.8 * body_size, HUMAN)
+    draw_head(scr, head_coords, 0.8 * body_size, head_color)
 
     left_arm_coords_start = (body_coords[0] - 2/3 * body_size, body_coords[1] - 2/3 * body_size)
     left_arm_coords_end = (coord_min[0] + 0.1 * width_man, coord_min[1])
-    draw_arm(scr, left_arm_coords_start, left_arm_coords_end, GREEN, HUMAN)
+    draw_arm(scr, left_arm_coords_start, left_arm_coords_end, shoulder_color, arm_color)
 
     right_arm_coords_start = (body_coords[0] + 2 / 3 * body_size, body_coords[1] - 2 / 3 * body_size)
     right_arm_coords_end = (coord_max[0] - 0.1 * width_man, coord_min[1])
-    draw_arm(scr, right_arm_coords_start, right_arm_coords_end, GREEN, HUMAN)
+    draw_arm(scr, right_arm_coords_start, right_arm_coords_end, shoulder_color, arm_color)
 
-    draw_hair(scr, head_coords, 0.8 * body_size, YELLOW)
+    draw_hair(scr, head_coords, 0.8 * body_size, hair_color)
 
 def turn_point_arnd_center(point_turn_angle, start_coords, center_coords):
 
@@ -112,7 +117,10 @@ def draw_arm(scr, start_point, end_point, shirt_color, arm_color):
 
     line(scr, arm_color, start_point, end_point, size_punch)
 
-    polygon(scr, shirt_color, draw_right_pentagon(start_point, 1.5 * size_punch))
+    pentagon_coords = draw_right_pentagon(start_point, 1.5 * size_punch)
+
+    polygon(scr, shirt_color, pentagon_coords)
+    polygon(scr, BLACK, pentagon_coords, 1)
 
 
 def draw_body(scr, body_coord_center, body_size, color):
@@ -196,6 +204,15 @@ def draw_punch(scr, coords, size, color):
     circle(scr, color, (coords[0], coords[1]), size)
 
 
+def draw_print(scr, color_print, min_coords, max_coords, text_of_print):
+
+    rect(scr, color_print, (min_coords[0], min_coords[1], max_coords[0], max_coords[1]))
+
+    # Создаем надпись
+    font1 = pygame.font.Font(None, 125)
+    text1 = font1.render('             PYTHON IS REALLY AMAZING', True, BLACK)
+    screen.blit(text1, (0, 10))
+
 #Инициализация библиотеки
 pygame.init()
 
@@ -220,19 +237,13 @@ screen = pygame.display.set_mode((width, height))
 screen.fill(WHITE)
 
 #Рисуем человека
-draw_man(screen, (0, 0.1 * height), (0.5 * width, height))
+draw_man(screen, (0, 0.1 * height), (0.5 * width, height), YELLOW, HUMAN, YELLOW, HUMAN, RED)
 
 #Рисуем 2го человекаа
-draw_man(screen, (0.5 * width, 0.1 * height), (width, height))
+draw_man(screen, (0.5 * width, 0.1 * height), (width, height), GREEN, HUMAN, GREEN, HUMAN, MAGENTA)
 
-
-#Создаем фон для надписи
-rect(screen, GREEN, (0, 0, 2000, 100))
-
-#Создаем надпись
-font1 = pygame.font.Font(None, 135)
-text1 = font1.render('             PYTHON IS REALLY AMAZING', True, BLACK)
-screen.blit(text1, (0, 10))
+#Рисуем принт с надписью
+draw_print(screen, GREEN, (0, 0), (width, 0.1 * height), 'PYTHON IS REALLY AMAZING')
 
 #Обновление экрана, чтобы появились нарисованнные вещи
 pygame.display.update()
