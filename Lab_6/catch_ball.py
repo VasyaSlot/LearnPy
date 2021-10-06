@@ -74,13 +74,7 @@ while not finished:
         if event.type == pygame.QUIT:
             finished = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                guess_vec = pygame.mouse.get_pos()
-
-                if vector_length(guess_vec, (x, y)) <= r:
-                    score_count += 1
-                else:
-                    print('LOOOSER!!!')
+            event_handler_for_catch_ball(event)
 
 
 
