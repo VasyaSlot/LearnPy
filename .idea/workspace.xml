@@ -159,7 +159,7 @@
       <workItem from="1633477398529" duration="2239000" />
       <workItem from="1633520614138" duration="913000" />
       <workItem from="1633529486887" duration="8138000" />
-      <workItem from="1633645392138" duration="2350000" />
+      <workItem from="1633645392138" duration="3668000" />
     </task>
     <servers />
   </component>
@@ -171,7 +171,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/LearnPy$draw_picture.coverage" NAME="draw_picture Coverage Results" MODIFIED="1631021809586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_5" />
-    <SUITE FILE_PATH="coverage/LearnPy$catch_ball.coverage" NAME="catch_ball Coverage Results" MODIFIED="1633647662490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_6" />
+    <SUITE FILE_PATH="coverage/LearnPy$catch_ball.coverage" NAME="catch_ball Coverage Results" MODIFIED="1633649367404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_6" />
     <SUITE FILE_PATH="coverage/LearnPy$test_pygame.coverage" NAME="test pygame Coverage Results" MODIFIED="1633537159172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_6" />
     <SUITE FILE_PATH="coverage/LearnPy$draw_picture_refact.coverage" NAME="draw_picture_refact Coverage Results" MODIFIED="1633393029909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_5" />
   </component>

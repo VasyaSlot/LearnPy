@@ -153,3 +153,7 @@ while not finished:
     pygame.display.update()
 
 pygame.quit()
+
+score_file = open("Score_file.txt", "a")
+name = input()
+score_file.write('Max score for ' + name + ' is: ' + str(score_count))
