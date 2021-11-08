@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="02d2c2a6-43db-4eb4-b619-dfce6d8eb2f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab_7/gun.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab_7/gun.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +35,29 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.gun">
+  <component name="RunManager" selected="Python.Lesson_1">
+    <configuration name="Lesson_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LearnPy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/younglinux_OOP" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/younglinux_OOP/Lesson_1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Tkinter_study" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LearnPy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,35 +146,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test pygame" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="LearnPy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lab_6" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lab_6/test pygame.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Lesson_1" />
         <item itemvalue="Python.gun" />
         <item itemvalue="Python.gun_obfuscated" />
         <item itemvalue="Python.Tkinter_study" />
         <item itemvalue="Python.catch_ball" />
-        <item itemvalue="Python.test pygame" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +184,13 @@
       <workItem from="1633529486887" duration="8138000" />
       <workItem from="1633645392138" duration="3891000" />
       <workItem from="1634037076686" duration="9367000" />
-      <workItem from="1634069160908" duration="9677000" />
+      <workItem from="1634069160908" duration="10186000" />
+      <workItem from="1634130022456" duration="9873000" />
+      <workItem from="1634251211320" duration="1319000" />
+      <workItem from="1634252595914" duration="230000" />
+      <workItem from="1634575521114" duration="10697000" />
+      <workItem from="1636154557790" duration="1661000" />
+      <workItem from="1636372116484" duration="2058000" />
     </task>
     <servers />
   </component>
@@ -194,12 +201,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/LearnPy$gun_obfuscated.coverage" NAME="gun_obfuscated Coverage Results" MODIFIED="1634077803551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_7" />
+    <SUITE FILE_PATH="coverage/LearnPy$gun_obfuscated.coverage" NAME="gun_obfuscated Coverage Results" MODIFIED="1634165408871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_7" />
+    <SUITE FILE_PATH="coverage/LearnPy$Lesson_1.coverage" NAME="Lesson_1 Coverage Results" MODIFIED="1636373519549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/younglinux_OOP" />
     <SUITE FILE_PATH="coverage/LearnPy$draw_picture.coverage" NAME="draw_picture Coverage Results" MODIFIED="1631021809586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_5" />
     <SUITE FILE_PATH="coverage/LearnPy$catch_ball.coverage" NAME="catch_ball Coverage Results" MODIFIED="1634037365776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_6" />
     <SUITE FILE_PATH="coverage/LearnPy$Tkinter_study.coverage" NAME="Tkinter_study Coverage Results" MODIFIED="1634073019151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_7" />
     <SUITE FILE_PATH="coverage/LearnPy$test_pygame.coverage" NAME="test pygame Coverage Results" MODIFIED="1633537159172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_6" />
     <SUITE FILE_PATH="coverage/LearnPy$draw_picture_refact.coverage" NAME="draw_picture_refact Coverage Results" MODIFIED="1633393029909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_5" />
-    <SUITE FILE_PATH="coverage/LearnPy$gun.coverage" NAME="gun Coverage Results" MODIFIED="1634080429475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_7" />
+    <SUITE FILE_PATH="coverage/LearnPy$gun.coverage" NAME="gun Coverage Results" MODIFIED="1636154602220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab_7" />
   </component>
 </project>

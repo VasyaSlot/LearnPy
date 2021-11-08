@@ -1,4 +1,5 @@
 from random import randrange as rnd, choice
+from random import randint as rndint
 import tkinter as tk
 import math
 import time
@@ -47,7 +48,7 @@ class ball():
 
     def boundary_conditions(self):
 
-        if (self.x + self.vx) >= 800:  # rignt boundary
+        if (self.x + self.vx) >= 800:  # right boundary
             self.vx *= -1
         if (self.x + self.vx) <= 0:  # left boundary
             self.vx *= -1
@@ -63,12 +64,24 @@ class ball():
         self.x и self.y с учетом скоростей self.vx и self.vy, силы гравитации, действующей на мяч,
         и стен по краям окна (размер окна 800х600).
         """
+
+
+
         self.boundary_conditions()
 
         self.x += self.vx
-        self.y -= self.vy - 0.5 * 9.81 * self.lifetime
+        self.y -= self.vy
+
+        #self.vy -= 0.9999 * self.vy / abs(self.vy) * (abs(self.vy) + 2)
+        #self.vx -= 0.9999 * self.vx / abs(self.vx) * (abs(self.vx))
+        #print(self.vy)
 
 
+    def hit(self):
+        """Попадание шарика в цель."""
+        canv.coords(self.id, -10, -10, -10, -10)
+
+        self.vx, self.vy = 0, 0
 
     def hittest(self, obj):
         """Функция проверяет сталкивалкивается ли данный обьект с целью, описываемой в обьекте obj.
@@ -139,27 +152,56 @@ class target():
     def __init__(self):
         self.live = 1
         self.points = 0
-        self.id = canv.create_oval(0, 0, 0, 0)
+        self.id = canv.create_oval(50, 50, 100, 100)
         self.id_points = canv.create_text(30, 30, text=self.points, font='28')
-        #self.new_target()
 
-    def new_target(self):
-        """ Инициализация новой цели. """
-        x = self.x = rnd(600, 780)
-        y = self.y = rnd(300, 550)
-        r = self.r = rnd(20, 50)
+        self.x = rnd(600, 780)
+        self.y = rnd(300, 550)
+        self.r = rnd(20, 50)
         color = self.color = 'red'
-        canv.coords(self.id, x-r, y-r, x+r, y+r)
+
+        self.vx = rndint(0, 10)
+        self.vy = rndint(0, 10)
+        #self.new_target()
+        canv.coords(self.id, self.x - self.r, self.y - self.r, self.x + self.r, self.y + self.r)
         canv.itemconfig(self.id, fill=color)
 
-    def hit(self, points=1):
+    def hit(self):
         """Попадание шарика в цель."""
         canv.coords(self.id, -10, -10, -10, -10)
-        self.points += points
-        canv.itemconfig(self.id_points, text=self.points)
+
+        self.vx, self.vy = 0, 0
 
 
-t1 = target()
+    def set_coords(self):
+        canv.coords(
+            self.id,
+            self.x - self.r,
+            self.y - self.r,
+            self.x + self.r,
+            self.y + self.r
+        )
+
+    def boundary_conditions(self):
+
+        if (self.x + self.vx) >= 800:  # right boundary
+            self.vx *= -1
+        if (self.x + self.vx) <= 0:  # left boundary
+            self.vx *= -1
+        if (self.y - self.vy) >= 600:  # bot boundary
+            self.vy *= -1
+        if (self.y - self.vy) <= 0:  # top boundary
+            self.vy *= -1
+
+    def move(self):
+        self.boundary_conditions()
+
+        self.x += self.vx
+        self.y -= self.vy
+
+num_tar = 2
+tars = [target() for i in range(num_tar)]
+
 screen1 = canv.create_text(400, 300, text='', font='28')
 g1 = gun()
 bullet = 0
@@ -167,8 +209,10 @@ balls = []
 
 
 def new_game(event=''):
-    global gun, t1, screen1, balls, bullet
-    t1.new_target()
+    global gun, tars, screen1, balls, bullet
+    num_hittest = num_tar
+    for tar in tars:
+        tar.live = 1
     bullet = 0
     balls = []
     canv.bind('<Button-1>', g1.fire2_start)
@@ -176,18 +220,25 @@ def new_game(event=''):
     canv.bind('<Motion>', g1.targetting)
 
     z = 0.03
-    t1.live = 1
-    while t1.live or balls:
+    while (num_hittest > 0) or balls:
         for b in balls:
             b.move()
             b.set_coords()
-            b.lifetime += 0.3
-            if b.hittest(t1) and t1.live:
-                t1.live = 0
-                t1.hit()
-                canv.bind('<Button-2>', new_game)
-                canv.bind('<ButtonRelease-1>', '')
-                canv.itemconfig(screen1, text='Вы уничтожили цель за ' + str(bullet) + ' выстрелов')
+            b.lifetime = 0.3
+        for tar in tars:
+            if tar.live == 1:
+                tar.move()
+                tar.set_coords()
+            for b in balls:
+                if b.hittest(tar) and tar.live:
+                    tar.live = 0
+                    tar.hit()
+                    num_hittest -= 1
+                if num_hittest == 0:
+                    canv.bind('<Button-2>', new_game)
+                    canv.bind('<ButtonRelease-1>', '')
+                    canv.itemconfig(screen1, text='Вы уничтожили цель за ' + str(bullet) + ' выстрелов')
+                    b.hit()
         canv.update()
         time.sleep(0.03)
         g1.targetting()
